@@ -8,15 +8,17 @@ class Owner
   def initialize(species)
     @pets = {:fishes => [], :cats => [], :dogs => []}
     @species = "human"
+    @@all << self
+    @@count +=1
   end
 
 # Class methods
   def self.all
-    @@all << self
+    @@all
   end
 
   def self.count #iadds to Owner count
-    @@count +=1 if !@@all.include?(self)
+    @@count
   end
 
   def self.reset_all
@@ -26,11 +28,27 @@ class Owner
 
 # Instance methods
   def say_species
-    puts "I am a #{species}."
+    "I am a human."
   end
 
   def name
     @name
+  end
+
+# Buy pets: take name argument and do the following:
+#  Make new instance of the appropriate pet, initializing it with that name.
+# Associate that new pet instance to the owner by
+#  adding it to the appropriate array-value of the @pets hash
+  def buy_fish(name)
+    self.pets[:fishes] << Fish.new(name)
+  end
+
+  def buy_cat(name)
+    self.pets[:cats] << Cat.new(name)
+  end
+
+  def buy_dog(name)
+    self.pets[:dogs] << Dog.new(name)
   end
 #class end below
 end
