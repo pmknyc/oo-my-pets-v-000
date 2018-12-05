@@ -50,5 +50,26 @@ class Owner
   def buy_dog(name)
     self.pets[:dogs] << Dog.new(name)
   end
+
+  def walk_dogs
+    self.pets[:dogs].each {|dog| dog.mood = "happy"}
+  end
+
+  def feed_fish
+    self.pets[:fishes].each {|fish| fish.mood = "happy"}
+  end
+
+  def play_with_cats
+    self.pets[:cats].each {|cat| cat.mood = "happy"}
+  end
+
+  def list_pets
+    list_hash = {}
+    self.pets.each_pair do |pet_type, pet_array|
+      list_hash[pet_type] = pet_array.size
+
+    end
+
+    end
 #class end below
 end
