@@ -1,15 +1,13 @@
 class Owner
 
-  attr_accessor :pets, :fishes, :cats, :dogs, :count
+  attr_accessor :pets, :fishes, :cats, :dogs, :name
   attr_reader :species
   @@all = []
   @@count = 0
 
-  def initialize
-    @pets = Hash.new{:fishes => [], :cats => [], :dogs => []}
+  def initialize(species)
+    @pets = {:fishes => [], :cats => [], :dogs => []}
     @species = "human"
-    self.count
-    self.all
   end
 
 # Class methods
@@ -17,8 +15,8 @@ class Owner
     @@all << self
   end
 
-  def self.count #iadds to Owner count; called by initialize method
-    @@count +=1
+  def self.count #iadds to Owner count
+    @@count +=1 if !@@all.include?(self)
   end
 
   def self.reset_all
@@ -32,7 +30,7 @@ class Owner
   end
 
   def name
-
+    @name
   end
 #class end below
 end
