@@ -67,9 +67,8 @@ class Owner
     list_hash = {}
     self.pets.each_pair do |pet_type, pet_array|
       list_hash[pet_type] = pet_array.size
-
     end
-
+      
     end
 #class end below
 end
