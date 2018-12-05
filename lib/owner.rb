@@ -64,12 +64,22 @@ class Owner
   end
 
   def list_pets
-    list_hash = {}
-    self.pets.each_pair do |pet_type, pet_array|
-      list_hash[pet_type] = pet_array.size
-
+    list_hash = []
+    self.pets.each do |pet_type, pet_array|
+      list_hash[pet_type.to_s] = pet_array.size
+    binding.pry
     end
+    "I have "
+    list_hash
+  end
 
+  def sell_pets
+    self.pets.each_value do |pet_array|
+      pet_array.join(",").each do |pet|
+          pet.mood = "nervous"
+      end
     end
+    self.pets.clear
+  end
 #class end below
 end
