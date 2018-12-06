@@ -69,13 +69,13 @@ class Owner
       list_hash[pet_type.to_s] = pet_array.size
     binding.pry
     end
-    "I have "
+    "I have #{??} "
     list_hash
   end
 
   def sell_pets
     self.pets.each_value do |pet_array|
-      pet_array.join(",").each do |pet|
+      pet_array.each do |pet|
           pet.mood = "nervous"
       end
     end
