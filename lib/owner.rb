@@ -66,11 +66,13 @@ class Owner
   end
 
 # iterate @pets hash => new hash {pet_type => pet_array.size}
-#  convert pet_type to string
-#  use array.size to get total num in pet_array
+#  convert pet_types to string
+#  use pet_array.size to get total num in each pet type
+# must chop off plural endings of pet_type;
+# fishes is only one ending 'es' not 's'
+
 # for puts statement:
-# must chop off plural endings of pet_type; fishes is only one
-# that ends in 'es' not 's'
+# output is reverse sorted alpha by pet type
 
 #after make new hash of singular pet_type and pet num
   def list_pets
@@ -78,13 +80,14 @@ class Owner
     self.pets.each do |pet_type, pet_array|
       if pet_type == :fishes
          pet_type = :fishs
-       end
-         h_list[pet_array.size] =  pet_type.to_s.chop
-  binding.pry
+      end
+      h_list[pet_type.to_s.chop] = pet_array.size
+  # binding.pry
     end
-    a_list = list.compact!.to_a.
-  #  "I have #{} #{??}, #{??} #{??}, and #{??} #{??}."
-
+  # a_list = converted hash to 3-element nested array, each element has pet num & pet type
+  # sort this array in reverse alpha by pet type
+      a =  h_list.to_a.sort! { |a, b| b <=> a }
+    "I have #{a[0][1]} #{a[0][0]}, #{a[1][1]} #{a[1][0]}(s), and #{a[2][1]} #{a[2][0]}(s)."
   end
 
   def sell_pets
