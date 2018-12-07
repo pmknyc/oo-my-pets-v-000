@@ -71,7 +71,7 @@ class Owner
       list_hash[pet_type.to_s] = pet_array.size
   binding.pry
     end
-  #  "I have #{??} "
+  #  "I have #{??} #{??}, #{??} #{??}, and #{??} #{??}"
     list_hash
   end
 
