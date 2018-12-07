@@ -1,3 +1,5 @@
+require 'pry'
+
 class Owner
 
   attr_accessor :pets, :fishes, :cats, :dogs, :name
@@ -64,18 +66,18 @@ class Owner
   end
 
   def list_pets
-    list_hash = []
+    list_hash = {}
     self.pets.each do |pet_type, pet_array|
       list_hash[pet_type.to_s] = pet_array.size
-    binding.pry
+  binding.pry
     end
-    "I have "
+  #  "I have #{??} "
     list_hash
   end
 
   def sell_pets
     self.pets.each_value do |pet_array|
-      pet_array.join(",").each do |pet|
+      pet_array.each do |pet|
           pet.mood = "nervous"
       end
     end
