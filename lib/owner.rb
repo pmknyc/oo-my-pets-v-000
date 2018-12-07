@@ -65,14 +65,26 @@ class Owner
     self.pets[:cats].each {|cat| cat.mood = "happy"}
   end
 
+# iterate @pets hash => new hash {pet_type => pet_array.size}
+#  convert pet_type to string
+#  use array.size to get total num in pet_array
+# for puts statement:
+# must chop off plural endings of pet_type; fishes is only one
+# that ends in 'es' not 's'
+
+#after make new hash of singular pet_type and pet num
   def list_pets
-    list_hash = {}
+    h_list = {}
     self.pets.each do |pet_type, pet_array|
-      list_hash[pet_type.to_s] = pet_array.size
+      if pet_type == :fishes
+         pet_type = :fishs
+       end
+         h_list[pet_array.size] =  pet_type.to_s.chop
   binding.pry
     end
-  #  "I have #{??} "
-    list_hash
+    a_list = list.compact!.to_a.
+  #  "I have #{} #{??}, #{??} #{??}, and #{??} #{??}."
+
   end
 
   def sell_pets
