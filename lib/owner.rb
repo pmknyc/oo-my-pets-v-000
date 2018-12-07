@@ -76,14 +76,15 @@ class Owner
   def list_pets
     h_list = {}
     self.pets.each do |pet_type, pet_array|
-      if pet_type == :fishes
-         pet_type = :fishs
-       end
-         h_list[pet_array.size] =  pet_type.to_s.chop
-  binding.pry
+        if pet_type == :fishes
+          pet_type = :fishs
+        end
+      h_list[pet_type.to_s.chop] = pet_array.size
+  # binding.pry
     end
-    a_list = list.compact!.to_a.
-  #  "I have #{} #{??}, #{??} #{??}, and #{??} #{??}."
+      a_list =  h_list.compact.to_a.sort { |a, b| b <=> a }
+      a_list.map.with_index
+  #  "I have #{} #{??}, #{??} #{??}(s), and #{??} #{??}(s)."
 
   end
 
